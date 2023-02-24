@@ -34,6 +34,9 @@ app.use(xss());
 
 // routes
 // all jobs routes protected since each request will first run through authentication
+app.get('/', (req, res) => {
+  res.send('jobs api');
+});
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/jobs', authenticateUser, jobsRouter);
 
